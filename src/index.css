@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 210 40% 96.1%;
+    --accent-glow: 221.2 83.2% 53.3%;
+    --muted: 210 40% 96.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  .dark {
+    --background: 240 10% 4%; /* #09090b - super dark gray (Vercel/Linear feel) */
+    --foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%; /* Electric blue */
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 4% 16%;
+    --accent-glow: 217.2 91.2% 59.8%; /* Glow color matching primary */
+    --muted: 240 4% 16%;
+    --card: 240 10% 6%; /* Slightly lighter than background for cards */
+    --card-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  /* Custom scrollbar to look premium */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-background/60 backdrop-blur-lg border border-border/50;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500;
+  }
+}
